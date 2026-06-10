@@ -33,7 +33,7 @@ app.post('/notify', async (req, res) => {
         return res.status(400).json({ error: 'Missing username or server' });
     }
     console.log(`📨 ${username} joined ${server}`);
-    const message = `${username} has just joined the server ${server} now`;
+    const message = `**${username}** has just joined the server ${server} now`;
     try {
         const owner = await client.users.fetch(process.env.OWNER_ID);
         await owner.send(message);
